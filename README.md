@@ -3,6 +3,18 @@
 
 This repository contains comprehensive guides and examples to prepare for a Backend Software Engineer role focused on API development, Bitcoin integration, and .NET/C# development.
 
+## 🚀 Featured Project: Bitcoin Hot-Wallet Deployment Plan
+- **[BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md](BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md)** - Complete step-by-step plan for deploying a production-ready custodial Bitcoin hot-wallet system
+  - Blazor Server frontend with real-time updates
+  - ASP.NET Core Web API backend
+  - Google Cloud Platform infrastructure
+  - Comprehensive security implementation
+  - Complete testing strategy
+  - Production deployment guide
+  - Monitoring and maintenance procedures
+
+This deployment plan brings together all the technical guides in this repository to showcase a complete, real-world project that demonstrates backend engineering competency.
+
 ## 📚 Documentation Overview
 
 ### Core Role Understanding
@@ -80,12 +92,22 @@ This repository addresses all key responsibilities of a Backend Software Enginee
 
 ## 🚀 Getting Started
 
+### For Interview Preparation
 1. **Start with [ROLE_SUMMARY.md](ROLE_SUMMARY.md)** to understand the position and expectations
 2. **Review [API_DEVELOPMENT_GUIDE.md](API_DEVELOPMENT_GUIDE.md)** for core API development skills
 3. **Study [BITCOIN_INTEGRATION_GUIDE.md](BITCOIN_INTEGRATION_GUIDE.md)** for cryptocurrency-specific knowledge
 4. **Practice with [TESTING_GUIDE.md](TESTING_GUIDE.md)** to master xUnit and Moq
 5. **Understand [CODE_REVIEW_BEST_PRACTICES.md](CODE_REVIEW_BEST_PRACTICES.md)** for team collaboration
 6. **Learn from [PERFORMANCE_OPTIMIZATION_GUIDE.md](PERFORMANCE_OPTIMIZATION_GUIDE.md)** to optimize code
+
+### For Building a Portfolio Project
+**Follow the [BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md](BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md)** to build a complete, production-ready Bitcoin wallet application that showcases:
+- Full-stack development (Blazor + ASP.NET Core)
+- Bitcoin integration and cryptocurrency handling
+- Cloud deployment on Google Cloud Platform
+- Security best practices
+- Professional testing and monitoring
+- Real-world application architecture
 
 ## 💡 Key Takeaways
 
