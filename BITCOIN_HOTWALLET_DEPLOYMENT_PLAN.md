@@ -1645,3 +1645,227 @@ This deployment plan provides a comprehensive roadmap for building and deploying
 This project showcases the complete software development lifecycle from design to deployment, demonstrating the skills required for a Backend Software Engineer role focused on Bitcoin and API development.
 
 **Good luck with your deployment!** 🚀🔐💰
+
+---
+
+## After: Rootstock (RSK) Integration Considerations
+
+### What is Rootstock?
+
+**Rootstock (RSK)** is a smart contract platform that is connected to the Bitcoin blockchain through a two-way peg mechanism, also known as a sidechain. It brings Ethereum-compatible smart contract functionality to the Bitcoin ecosystem, allowing developers to build decentralized applications (dApps) while leveraging Bitcoin's security.
+
+### Key Features
+
+#### 1. **Bitcoin-Backed Smart Contracts**
+- RSK enables Ethereum-compatible smart contracts secured by Bitcoin's proof-of-work
+- Compatible with Ethereum Virtual Machine (EVM) and Solidity programming language
+- Allows developers to use familiar Ethereum tools and frameworks
+
+#### 2. **Two-Way Peg (2WP)**
+- BTC can be converted to RBTC (Rootstock's native token) and back
+- Maintains a 1:1 peg with Bitcoin
+- Enables Bitcoin holders to interact with smart contracts without selling their BTC
+
+#### 3. **Merge Mining**
+- Secured by Bitcoin miners through merge mining
+- Provides substantial security without requiring separate mining infrastructure
+- Currently secured by a significant portion of Bitcoin's hash rate
+
+#### 4. **Fast Block Times**
+- Average block time of 30 seconds (compared to Bitcoin's 10 minutes)
+- Enables faster transaction confirmations for smart contract interactions
+- Better user experience for dApp users
+
+### Integration Opportunities
+
+#### Extending the Hot-Wallet System for RSK
+
+If you want to extend this Bitcoin hot-wallet deployment to support Rootstock, consider the following integration points:
+
+##### 1. **RBTC Wallet Support**
+```csharp
+// Example: Extend wallet service to support RBTC
+public interface IRootstock WalletService
+{
+    Task<string> ConvertBtcToRbtc(decimal amount, string btcAddress);
+    Task<string> ConvertRbtcToBtc(decimal amount, string rbtcAddress);
+    Task<decimal> GetRbtcBalance(string address);
+    Task<RskTransaction> SendRbtcTransaction(string from, string to, decimal amount);
+}
+```
+
+##### 2. **Smart Contract Integration**
+- Deploy and interact with smart contracts on RSK
+- Manage token transfers (ERC-20 compatible tokens on RSK)
+- Handle DeFi protocols built on Rootstock
+
+##### 3. **Cross-Chain Functionality**
+- Implement BTC ↔ RBTC conversion workflows
+- Monitor peg transactions
+- Handle both Bitcoin and RSK transactions within the same wallet interface
+
+### Technical Resources
+
+#### Development Documentation
+- **Developer Portal**: https://dev.rootstock.io/
+  - API documentation
+  - Smart contract guides
+  - Integration tutorials
+  - SDK and library references
+
+#### Main Resources
+- **Official Website**: https://rootstock.io/
+  - Overview and ecosystem information
+  - Use cases and success stories
+  - Community resources
+
+#### Key Libraries and Tools
+- **RSKj**: Full node implementation (Java-based)
+- **Web3.js/Ethers.js**: Compatible JavaScript libraries for RSK interaction
+- **Remix IDE**: Smart contract development environment
+- **Hardhat/Truffle**: Development frameworks compatible with RSK
+
+### Deployment Considerations
+
+#### Infrastructure Requirements
+1. **RSK Node**
+   - Run an RSK node for direct blockchain interaction
+   - Alternative: Use RPC providers like RSK Public Nodes or Infrastructure providers
+
+2. **Smart Contract Deployment**
+   - Deploy contracts using standard Ethereum tooling
+   - Gas costs paid in RBTC (typically lower than Ethereum)
+
+3. **Monitoring and Indexing**
+   - RSK Block Explorer integration
+   - Custom indexers for wallet-specific data
+   - Event monitoring for smart contract interactions
+
+#### Security Considerations
+1. **Key Management**
+   - Separate key management for BTC and RBTC/RSK accounts
+   - Consider using the same KMS approach (Google Cloud KMS)
+   - Implement multi-signature wallets for enhanced security
+
+2. **Peg Monitoring**
+   - Monitor two-way peg transactions
+   - Implement safety checks for peg-in/peg-out operations
+   - Track confirmation times and transaction status
+
+3. **Smart Contract Audits**
+   - Any custom smart contracts should be professionally audited
+   - Use established, audited contracts when possible
+   - Implement upgrade mechanisms for contracts
+
+### Use Cases for RSK Integration
+
+1. **DeFi Services**
+   - Lending and borrowing platforms
+   - Decentralized exchanges (DEXs)
+   - Yield farming opportunities
+
+2. **Tokenization**
+   - Issue custom tokens on RSK
+   - Create Bitcoin-backed synthetic assets
+   - NFT minting and trading
+
+3. **Payment Solutions**
+   - Fast, programmable Bitcoin payments
+   - Conditional payment smart contracts
+   - Automated payment splitting and distribution
+
+4. **Cross-Chain Services**
+   - Bridge between Bitcoin and other blockchain ecosystems
+   - Liquidity provision across chains
+   - Arbitrage opportunities
+
+### Migration Path
+
+If you decide to extend this hot-wallet system to support Rootstock:
+
+#### Phase 1: Research & Planning (1-2 weeks)
+- [ ] Deep dive into RSK documentation and architecture
+- [ ] Identify specific RSK features needed for your use case
+- [ ] Design wallet data model extensions for RBTC support
+- [ ] Plan smart contract requirements (if any)
+
+#### Phase 2: Development Environment (1 week)
+- [ ] Set up RSK testnet/regtest environment
+- [ ] Configure RSK node or RPC endpoint access
+- [ ] Install and configure development tools (Hardhat, Web3 libraries)
+- [ ] Create test accounts and acquire testnet RBTC
+
+#### Phase 3: Core Integration (2-3 weeks)
+- [ ] Implement RBTC wallet generation and management
+- [ ] Add RBTC transaction creation and signing
+- [ ] Implement balance checking and transaction history
+- [ ] Build two-way peg integration (BTC ↔ RBTC)
+
+#### Phase 4: Smart Contract Layer (2-4 weeks, if applicable)
+- [ ] Develop or integrate with existing smart contracts
+- [ ] Implement contract interaction methods
+- [ ] Add event listening and processing
+- [ ] Create admin functions for contract management
+
+#### Phase 5: Testing & Security (2 weeks)
+- [ ] Unit tests for all RSK-related functionality
+- [ ] Integration tests with RSK testnet
+- [ ] Security audit of new code
+- [ ] Penetration testing for RSK components
+
+#### Phase 6: Deployment (1 week)
+- [ ] Deploy RSK node or configure mainnet RPC access
+- [ ] Deploy smart contracts to RSK mainnet (if applicable)
+- [ ] Migrate existing infrastructure to support RSK
+- [ ] Monitor initial transactions closely
+
+### Cost Implications
+
+#### Additional Infrastructure Costs
+- **RSK Node Hosting**: $100-300/month (if self-hosting)
+- **RPC Provider Services**: $50-200/month (alternative to self-hosting)
+- **Additional Storage**: $20-50/month for RSK blockchain data
+- **Smart Contract Deployment**: One-time gas costs (typically low on RSK)
+
+#### Development Effort
+- **Estimated Development Time**: 8-12 weeks for full integration
+- **Maintenance Overhead**: +20% ongoing maintenance compared to Bitcoin-only
+
+### Limitations and Challenges
+
+1. **Ecosystem Maturity**
+   - Smaller ecosystem compared to Ethereum
+   - Fewer available dApps and integrations
+   - Limited tooling in some areas
+
+2. **Peg Transaction Times**
+   - Two-way peg operations can take time (multiple Bitcoin confirmations)
+   - Not suitable for instant conversions
+   - Requires careful UX design to manage user expectations
+
+3. **Additional Complexity**
+   - Need to manage both Bitcoin and RSK transaction logic
+   - Smart contract upgrades and maintenance
+   - More complex error handling and recovery scenarios
+
+4. **Documentation Gaps**
+   - Some advanced features may have limited documentation
+   - Smaller community compared to Bitcoin or Ethereum mainnet
+   - May require more independent research and experimentation
+
+### Conclusion
+
+Rootstock represents an exciting opportunity to extend Bitcoin's functionality with smart contracts while maintaining Bitcoin's security guarantees. For a hot-wallet system, RSK integration can unlock DeFi capabilities, faster transactions, and programmable money features that aren't possible with Bitcoin alone.
+
+However, this comes with added complexity and should only be pursued if there's a clear business case for smart contract functionality. Start with a solid Bitcoin-only implementation (as outlined in this deployment plan), then consider RSK as a valuable extension once the core system is stable and proven.
+
+**Key Takeaway**: Rootstock bridges Bitcoin's security with Ethereum's programmability, offering a powerful platform for developers who want to build on Bitcoin without leaving its ecosystem.
+
+### Further Reading
+- Explore the Rootstock documentation at https://dev.rootstock.io/
+- Join the RSK community forums and Discord channels
+- Review example projects and dApps built on Rootstock
+- Study the two-way peg mechanism in detail
+- Investigate RIF (Rootstock Infrastructure Framework) services
+
+**Good luck exploring Rootstock!** ⛓️🔗💻
