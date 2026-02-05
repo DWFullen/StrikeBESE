@@ -1685,7 +1685,7 @@ If you want to extend this Bitcoin hot-wallet deployment to support Rootstock, c
 ##### 1. **RBTC Wallet Support**
 ```csharp
 // Example: Extend wallet service to support RBTC
-public interface IRootstock WalletService
+public interface IRootstockWalletService
 {
     Task<string> ConvertBtcToRbtc(decimal amount, string btcAddress);
     Task<string> ConvertRbtcToBtc(decimal amount, string rbtcAddress);
