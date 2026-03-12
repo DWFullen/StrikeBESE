@@ -370,17 +370,3 @@ Danny, a backend developer learning the ropes at a Bitcoin fintech company, open
   - The pipeline deploys the new image to Cloud Run (or marks it ready for manual promotion).
   - Pipeline execution time is under 5 minutes end-to-end.
 **Backend Software Engineer Interview Preparation Repository**
-
-This repository contains comprehensive guides and examples to prepare for a Backend Software Engineer role focused on API development, Bitcoin integration, and .NET/C# development.
-
-## 🚀 Featured Project: Bitcoin Hot-Wallet Deployment Plan
-- **[BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md](BITCOIN_HOTWALLET_DEPLOYMENT_PLAN.md)** - Complete step-by-step plan for deploying a production-ready custodial Bitcoin hot-wallet system
-  - Blazor Server frontend with real-time updates
-  - ASP.NET Core Web API backend
-  - Google Cloud Platform infrastructure
-  - Comprehensive security implementation
-  - Complete testing strategy
-  - Production deployment guide
-  - Monitoring and maintenance procedures
-
-This deployment plan brings together all the technical guides in this repository to showcase a complete, real-world project that demonstrates backend engineering competency.
